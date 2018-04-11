@@ -1,0 +1,25 @@
+﻿<Window x:Class="DruštvoWPF.Obnovi"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DruštvoWPF"
+        mc:Ignorable="d"
+        Title="Obnovi" Height="150" Width="300">
+    <Window.Resources>
+        <local:Darovi x:Key="d"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Za dan:" Margin="10"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Column="1">
+            <DatePicker Margin="10" Name="dtpDatum" SelectedDate="{Binding Datum, Source={StaticResource d}}"/>
+            <Button Margin="20" Content="Obnovi" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

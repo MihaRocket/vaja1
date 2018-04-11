@@ -1,0 +1,33 @@
+﻿<Window x:Class="DruštvoWPF.Vnos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DruštvoWPF"
+        mc:Ignorable="d"
+        Title="Vnos" Height="300" Width="300">
+    <Window.Resources>
+        <local:Darovi x:Key="d"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Zaporedna št" Margin="10"/>
+            <TextBlock Text="Datum" Margin="10"/>
+            <TextBlock Text="Namen" Margin="10"/>
+            <TextBlock Text="Znesek" Margin="10"/>
+            <TextBlock Text="Opombe" Margin="10"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Column="1">
+            <TextBox Margin="10" Name="txtZapŠt" Text="{Binding ZapŠt, Source={StaticResource d}}"/>
+            <DatePicker Margin="10" Name="dtpDatum" SelectedDate="{Binding Datum, Source={StaticResource d}}"/>
+            <TextBox Margin="10" Name="txtNamen" Text="{Binding Namen, Source={StaticResource d}}"/>
+            <TextBox Margin="10" Name="txtZnesek" Text="{Binding Znesek, Source={StaticResource d}}"/>
+            <TextBox Margin="10" Name="txtOpombe" Text="{Binding Opombe, Source={StaticResource d}}"/>
+            <Button Margin="20" Content="Vnesi" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
